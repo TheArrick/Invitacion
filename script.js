@@ -128,6 +128,7 @@ document.getElementById("rsvp-form").addEventListener("submit", function(e) {
 
     fetch("https://script.google.com/macros/s/AKfycbzgsuCTg7pi5A_H9kdHvw-nz2d-0s_lyGm_GP5IYt8zFXtIGc4n4Zl0XryHHI372wgUhw/exec", {
         method: "POST",
+        mode: "no-cors",
         headers: {
             "Content-Type": "application/json"
         },
