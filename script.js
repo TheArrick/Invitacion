@@ -1,5 +1,5 @@
 
-const numMariposas = 20;
+numMariposas = 0;
 const mariposaImg1 = "images/R.png"; // Cambia por tu imagen
 const mariposaImg2 = "images/R2.png"; // Cambia por tu imagen
 const mariposaImg3 = "images/R3.png"; // Cambia por tu imagen
@@ -7,7 +7,17 @@ const mariposaImg4 = "images/R4.png";
 const mariposaImg6 = "images/R6.png";
 const mundo = document.getElementById("mundo");
 
-// Crear mariposas
+const anchoPantalla = window.innerWidth;
+
+if (anchoPantalla < 480) { // Móviles pequeños
+    numMariposas = 5;
+} else if (anchoPantalla < 768) { // Móviles grandes/tablets pequeñas
+    numMariposas = 10;
+} else if (anchoPantalla < 1024) { // Tablets
+    numMariposas = 15;
+} else { // Desktop
+    numMariposas = 20;
+}
 for (let i = 0; i < numMariposas; i++) {
     crearMariposa(mariposaImg1);
     crearMariposa(mariposaImg2);

@@ -154,7 +154,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 40%;
+    width: 50%;
     margin: 5rem auto;
     padding: 40px 0;
     background-color: rgba(255, 255, 255, 0.9);
@@ -242,7 +242,7 @@ body {
     justify-content: center;
     align-items: center;
     background: #01224d;
-    color: #c4c4c4;
+    color: white;
     padding: 20px;
     height: 5rem;
     width: 10rem;
@@ -342,7 +342,7 @@ body {
     align-items: center;
     /* Centrado vertical */
     background: #01224d;
-    color: #c4c4c4;
+    color: white;
     padding: 20px;
     height: 5rem;
     min-width: 200px;
@@ -467,7 +467,7 @@ body {
     max-width: 500px;
     margin: 0 auto;
     padding: 2.5rem;
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
@@ -628,7 +628,7 @@ footer {
     position: absolute;
     width: 100%;
     /* 2x el ancho de la pantalla */
-    height: 200vh;
+    height: 250vh;
     z-index: -1;
     /* 2x el alto de la pantalla */
 }
