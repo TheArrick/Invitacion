@@ -126,7 +126,7 @@ document.getElementById("rsvp-form").addEventListener("submit", function(e) {
         mensaje: document.getElementById("mensaje").value
     };
 
-    fetch("https://script.google.com/macros/s/AKfycbzgsuCTg7pi5A_H9kdHvw-nz2d-0s_lyGm_GP5IYt8zFXtIGc4n4Zl0XryHHI372wgUhw/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbzYBcMIqy2h_doPxireRTzKvSR_R63aHm_a7AVNyQXDHQOt3JZCv9enS6GRCaRpE-1Rvg/exec", {
         method: "POST",
         mode: "no-cors",
         headers: {
