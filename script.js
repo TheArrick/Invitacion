@@ -1,5 +1,5 @@
 
-const numMariposas = 30;
+const numMariposas = 10;
 const mariposaImg1 = "images/R.png"; // Cambia por tu imagen
 const mariposaImg2 = "images/R2.png"; // Cambia por tu imagen
 const mariposaImg3 = "images/R3.png"; // Cambia por tu imagen
@@ -22,7 +22,7 @@ function crearMariposa(mariposaT) {
     mariposa.src = mariposaT;
 
     // Posición y velocidad inicial aleatoria
-    let x = Math.random() * mundo.offsetWidth;
+    let x = Math.random() * mundo.offsetWidth - 200;
     let y = Math.random() * mundo.offsetHeight;
     let velX = (Math.random() - 0.5) * 3;
     let velY = (Math.random() - 0.5) * 3;

@@ -11,7 +11,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&family=Parisienne&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=MonteCarlo&family=Parisienne&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -74,7 +78,7 @@
                 </div>
                 <div class="evento">
                     <i class="fa-solid fa-martini-glass-citrus"></i>
-                    <div class="nombre-evento">Inicio Central</div>
+                    <div class="nombre-evento">Inicio </div>
                     <div class="hora-evento">20:30 Hrs</div>
                 </div>
                 <div class="evento">
@@ -125,17 +129,17 @@
 
         <div class="containerForm animate-on-scroll">
             <form id="rsvp-form">
-                <label for="nombre">Nombre:
+                <label for="nombre" class="dato">Nombre Completo:
                     <input id="nombre" name="nombre" type="text" required>
                 </label>
 
-                <label for="numero">Número de teléfono:
+                <label for="numero" class="dato">Número de teléfono:
                     <input id="numero" name="numero" pattern="^\d{7,15}$" type="tel" required>
                 </label>
 
-                <label for="mensaje">Provide a bio:
+                <label for="mensaje" class="dato">Dedícale unas palabras:
                     <textarea id="mensaje" name="mensaje" rows="3" cols="30"
-                        placeholder="I like coding on the beach..."></textarea>
+                        placeholder="Querida Mariana..."></textarea>
                 </label>
                 <button type="submit" class="submit-btn pulse">Confirmar</button>
             </form>
