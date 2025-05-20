@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariposa Animada</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #f0f8ff;
+        }
+
+        .mariposa {
+            position: absolute;
+            width: 100px;
+            /* Ajusta según el tamaño de tu imagen */
+            height: auto;
+            animation: vuelo 15s linear infinite, aleteo 0.3s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        @keyframes aleteo {
+
+            0%,
+            100% {
+                transform: scaleY(1) rotate(0deg);
+            }
+
+            50% {
+                transform: scaleY(0.8) rotate(2deg);
+            }
+
+            /* Efecto de aleteo */
+        }
+
+        @keyframes vuelo {
+            0% {
+                top: 10%;
+                left: 5%;
+                transform: rotate(0deg);
+            }
+
+            25% {
+                top: 60%;
+                left: 30%;
+                transform: rotate(20deg);
+            }
+
+            50% {
+                top: 20%;
+                left: 70%;
+                transform: rotate(-10deg);
+            }
+
+            75% {
+                top: 80%;
+                left: 50%;
+                transform: rotate(30deg);
+            }
+
+            100% {
+                top: 10%;
+                left: 5%;
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <img class="mariposa" src="images/mariposa.png" alt="Mariposa volando">
+</body>
+
+</html>

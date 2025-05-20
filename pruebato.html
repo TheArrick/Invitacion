@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariposas en Página Scrollable</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: auto;
+            /* Permite scroll */
+            background-color: #f0f8ff;
+            min-height: 100vh;
+        }
+
+        #mundo {
+            position: relative;
+            width: 200vw;
+            /* 2x el ancho de la pantalla */
+            height: 200vh;
+            /* 2x el alto de la pantalla */
+        }
+
+        .mariposa {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            animation: aleteo 0.3s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        @keyframes aleteo {
+
+            0%,
+            100% {
+                transform: scaleY(1) rotate(var(--rotacion));
+            }
+
+            50% {
+                transform: scaleY(0.8) rotate(calc(var(--rotacion) + 5deg));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mundo"></div> <!-- Contenedor grande para las mariposas -->
+
+    <script>
+        // Configuración
+        const numMariposas = 20;
+        const mariposaImg = "images/butter.png"; // Cambia por tu imagen
+
+        const mundo = document.getElementById("mundo");
+
+        // Crear mariposas
+        for (let i = 0; i < numMariposas; i++) {
+            crearMariposa();
+        }
+
+        function crearMariposa() {
+            const mariposa = document.createElement("img");
+            mariposa.className = "mariposa";
+            mariposa.src = mariposaImg;
+
+            // Posición y velocidad inicial aleatoria
+            let x = Math.random() * mundo.offsetWidth;
+            let y = Math.random() * mundo.offsetHeight;
+            let velX = (Math.random() - 0.5) * 3;
+            let velY = (Math.random() - 0.5) * 3;
+            let rotacion = Math.random() * 360;
+
+            mariposa.style.left = `${x}px`;
+            mariposa.style.top = `${y}px`;
+            mariposa.style.setProperty("--rotacion", `${rotacion}deg`);
+
+            mundo.appendChild(mariposa);
+
+            // Animación
+            function animar() {
+                x += velX;
+                y += velY;
+
+                // Rebote en los bordes del mundo (no del viewport)
+                if (x <= 0 || x >= mundo.offsetWidth - 60) {
+                    velX *= -1;
+                    rotacion = Math.atan2(velY, velX) * (180 / Math.PI);
+                }
+                if (y <= 0 || y >= mundo.offsetHeight - 60) {
+                    velY *= -1;
+                    rotacion = Math.atan2(velY, velX) * (180 / Math.PI);
+                }
+
+                mariposa.style.left = `${x}px`;
+                mariposa.style.top = `${y}px`;
+                mariposa.style.setProperty("--rotacion", `${rotacion}deg`);
+
+                requestAnimationFrame(animar);
+            }
+
+            animar();
+        }
+    </script>
+</body>
+
+</html>
