@@ -1,5 +1,5 @@
 
-const numMariposas = 10;
+const numMariposas = 20;
 const mariposaImg1 = "images/R.png"; // Cambia por tu imagen
 const mariposaImg2 = "images/R2.png"; // Cambia por tu imagen
 const mariposaImg3 = "images/R3.png"; // Cambia por tu imagen
@@ -15,8 +15,92 @@ for (let i = 0; i < numMariposas; i++) {
     crearMariposa(mariposaImg4);
     crearMariposa(mariposaImg6);
 }
-
 function crearMariposa(mariposaT) {
+    const mariposa = document.createElement("img");
+    mariposa.className = "mariposa";
+    mariposa.src = mariposaT;
+
+    // Tamaño consistente para cálculos de colisión
+    const anchoMariposa = 100;
+    const altoMariposa = 100;
+
+    // Posición inicial aleatoria dentro de límites seguros
+    let x = Math.random() * mundo.offsetWidth - 200;
+    let y = Math.random() * mundo.offsetHeight;
+
+
+    // Velocidad inicial con límites
+    let velX = (Math.random() - 0.5) * 3;
+    let velY = (Math.random() - 0.5) * 3;
+    let rotacion = Math.random() * 360;
+
+    // Aplicar estilos iniciales
+    mariposa.style.position = 'absolute';
+    mariposa.style.width = `${anchoMariposa}px`;
+    mariposa.style.height = `${altoMariposa}px`;
+    mariposa.style.left = `${x}px`;
+    mariposa.style.top = `${y}px`;
+    mariposa.style.setProperty("--rotacion", `${rotacion}deg`);
+    mariposa.style.willChange = 'transform'; // Optimización de rendimiento
+
+    mundo.appendChild(mariposa);
+
+    // Control de animación
+    let animacionActiva = true;
+    let ultimoTiempo = performance.now();
+
+    function animar(tiempoActual) {
+        if (!animacionActiva) return;
+
+        // Calcular deltaTime para movimiento consistente
+        const deltaTime = Math.min((tiempoActual - ultimoTiempo) / 16, 2); // Limitar a 2x velocidad normal
+        ultimoTiempo = tiempoActual;
+
+        // Actualizar posición
+        x += velX * deltaTime;
+        y += velY * deltaTime;
+
+        // Detección de bordes con márgenes de seguridad
+        const margen = 2;
+
+        if (x <= margen) {
+            x = margen;
+            velX *= -0.98; // Pequeña pérdida de energía en el rebote
+            rotacion = Math.atan2(velY, velX) * (180 / Math.PI);
+        } else if (x >= mundo.offsetWidth - anchoMariposa - margen) {
+            x = mundo.offsetWidth - anchoMariposa - margen;
+            velX *= -0.98;
+            rotacion = Math.atan2(velY, velX) * (180 / Math.PI);
+        }
+
+        if (y <= margen) {
+            y = margen;
+            velY *= -0.98;
+            rotacion = Math.atan2(velY, velX) * (180 / Math.PI);
+        } else if (y >= mundo.offsetHeight - altoMariposa - margen) {
+            y = mundo.offsetHeight - altoMariposa - margen;
+            velY *= -0.98;
+            rotacion = Math.atan2(velY, velX) * (180 / Math.PI);
+        }
+
+        // Aplicar transformaciones
+        mariposa.style.left = `${x}px`;
+        mariposa.style.top = `${y}px`;
+        mariposa.style.transform = `rotate(${rotacion}deg)`;
+
+        requestAnimationFrame(animar);
+    }
+
+    // Iniciar animación
+    requestAnimationFrame(animar);
+
+    // Retornar función para limpieza
+    return () => {
+        animacionActiva = false;
+        mundo.removeChild(mariposa);
+    };
+}
+/*function crearMariposa(mariposaT) {
     const mariposa = document.createElement("img");
     mariposa.className = "mariposa";
     mariposa.src = mariposaT;
@@ -57,7 +141,7 @@ function crearMariposa(mariposaT) {
     }
 
     animar();
-}
+}*/
 // Countdown
 function updateCountdown() {
     const countDownDate = new Date("Jun 7, 2025 17:30:00").getTime();

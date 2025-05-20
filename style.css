@@ -626,17 +626,17 @@ footer {
 
 #mundo {
     position: absolute;
-    width: 200vw;
+    width: 100%;
     /* 2x el ancho de la pantalla */
-    height: 300vh;
+    height: 200vh;
     z-index: -1;
     /* 2x el alto de la pantalla */
 }
 
 .mariposa {
     position: absolute;
-    width: 7rem;
-    height: 7rem;
+    width: 10rem;
+    height: 10rem;
     animation: aleteo 0.3s ease-in-out infinite;
     transform-origin: center;
 }
@@ -793,6 +793,7 @@ footer {
 
     #mundo {
         width: 100%;
+        height: 380vh;
     }
 
     .titulo {
