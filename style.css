@@ -101,7 +101,7 @@ body {
 }
 
 .datos-quince {
-    line-height: 0.9;
+    line-height: 1.3;
     margin-top: 10px;
 }
 
@@ -116,6 +116,7 @@ body {
 
 .edad {
     font-size: 15rem;
+
     margin-top: 0;
 }
 
@@ -372,7 +373,7 @@ body {
     padding: 2rem;
     padding-bottom: 0;
     border-radius: 4px;
-    font-family: 'Parisienne';
+    font-family: 'MonteCarlo';
     flex: 1 1 300px;
     max-width: 500px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -389,7 +390,6 @@ body {
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
     padding-bottom: 1rem;
     margin-bottom: 1.5rem;
-    font-family: 'Parisienne';
     color: #000;
 }
 
