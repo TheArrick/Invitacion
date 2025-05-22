@@ -71,7 +71,7 @@ function crearMariposa(mariposaT) {
         y += velY * deltaTime;
 
         // Detección de bordes con márgenes de seguridad
-        const margen = 2;
+        const margen = 30;
 
         if (x <= margen) {
             x = margen;
